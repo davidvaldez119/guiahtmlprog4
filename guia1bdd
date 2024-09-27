@@ -1,0 +1,78 @@
+DROP database guia1;
+#drop table emple;
+#drop table depto;
+CREATE database guia1;
+
+USE guia1;
+
+CREATE TABLE emple 
+(
+codigo INT (10) primary key,
+nif varchar(9),
+nombre VARCHAR(40) ,
+apellido1 VARCHAR(100) ,
+apellido2 VARCHAR(100) ,
+codigoDpto int(10) 
+);
+
+CREATE TABLE depto
+(
+codigo int(10) primary key,
+nombre VARCHAR(100) ,
+presupuesto DOUBLE ,
+gasto DOUBLE 
+#primary KEY (codigo,codigo),
+#foreign key(codigo) REFERENCES emple(codigoDpto)
+);
+#alter table emple 
+#add constraint pkcod primary key (codigo);
+ 
+ #alter table emple
+ #add constraint fkCod foreign key (codigoDpto) references depto (codigo);
+
+ #alter table depto
+ #add constraint pkCod primary key (codigo);
+
+ 
+INSERT INTO depto values 
+(1, 'desarrollo', 120000, 6000),
+(2, 'sistemas', 150000, 21000),
+(3, 'recursos humanos', 280000, 25000),
+(4, 'contabilidad', 110000, 3000),
+(5, 'i+d', 375000, 380000),
+(6, 'proyectos', 0, 0),
+(7, 'publicidad', 0, 1000);
+
+#select *from depto;
+
+INSERT INTO emple values(1, '32481596f', 'aarón', 'rivero', 'gómez', 1),
+(2, 'y5575632d', 'adela', 'salas', 'díaz', 2),
+(3, 'r6970642b', 'adolfo', 'rubio', 'flores', 3),
+(4, '77705545e', 'adrián', 'suárez', null, 4),
+(5, '17087203c', 'marcos', 'loyola', 'méndez', 5),
+(6, '38382980m', 'maría', 'santana', 'moreno', 1),
+(7, '80576669x', 'pilar', 'ruiz', null, 2),
+(8, '71651431z', 'pepe', 'ruiz', 'santana', 3),
+(9, '56399183d', 'juan', 'gómez', 'lópez', 2),
+(10, '46384486h', 'diego','flores', 'salas', 5),
+(11, '67389283a', 'marta','herrera', 'gil', 1),
+(12, '41234836r', 'irene','salas', 'flores', null),
+(13, '82635162b', 'juan antonio','sáez', 'guerrero',null);
+
+#select *from depto;                               #obtener tabla completa
+#select *from emple;                               #3
+#select *from emple where codigo=1;                #1
+#SELECT  apellido1 FROM emple ;                    #obtener toda una fila de una tabla
+#SELECT apellido1,codigoDpto FROM emple;           #OBTENGO2 FILAS DE LA TABLA
+#SELECT nombre,apellido1  FROM emple ;             #4
+#SELECT codigoDpto FROM emple;                      #5
+#SELECT *FROM emple ORDER BY  codigoDpto DESC ;     #ORDENO DE FORMA DESCENDENTE NUMEROS
+#SELECT codigoDpto, nombre , apellido1  FROM emple WHERE 	codigoDpto <3;
+#SELECT *FROM 	emple ORDER BY nombre DESC;        #ORDENAR EN FORMA DESCENDENTE VARCHAR
+#SELECT *FROM 	emple ORDER BY nombre ASC;         #ORDENAR EN FORMA ASCENDENTE VARCHAR
+# estructura para max y min 
+#SELECT MIN o MAX  CAMPO FROM TABLE
+SELECT max(presupuesto) FROM depto;
+SELECT min(presupuesto) FROM depto;
+SELECT *FROM depto  ORDER BY presupuesto DESC;
+
